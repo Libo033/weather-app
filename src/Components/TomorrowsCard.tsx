@@ -1,33 +1,46 @@
 // https://api.weatherbit.io/v2.0/forecast/daily?lat=-34.7984&lon=-58.45316614322921&key=911f70efe3c74664ac8a9262e1da2862
-import React from 'react'
-import styles from '@/styles/Cards.module.css'
-import Image from 'next/image'
+import React, { useEffect, useState } from "react";
+import styles from "@/styles/Cards.module.css";
+import Image from "next/image";
+import dia_semana from "@/Libs/diaDeLaSemana";
 
 interface ICardData {
-  icon: string
-  posibilidad_lluvia: string
-  temp_min: string
-  temp_max: string
+  icon: string;
+  temp_min: number;
+  temp_max: number;
+  description: string;
+  wind: number;
+  windDir: string;
   dia: string
-  wind: string
 }
 
-const TomorrowsCard: React.FC<ICardData> = ( props ) => {
+const TomorrowsCard: React.FC<ICardData> = (props) => {
+  const [dia, setDia] = useState<string>("");
+
+  useEffect(() => {
+    setDia(dia_semana(props.dia));
+  }, [])
+
   return (
     <div className={styles.tomorrowCard}>
-      <p>Mañana</p>
+      <p>{dia}</p>
+      <p>{props.description}</p>
       <div>
-        <Image src={'/img/icons/a01d.png'} width={72} height={72} alt='weather' />
-        <p style={{textAlign: 'center'}}>21%</p>
+        <Image
+          src={`/img/icons/${props.icon}.png`}
+          width={72}
+          height={72}
+          alt="weather"
+        />
       </div>
       <div className={styles.minmax}>
-        <p style={{color: 'blue'}}>12°</p>
+        <p style={{ color: "blue" }}>{props.temp_min}°</p>
         <p>&nbsp;/&nbsp;</p>
-        <p style={{color: 'red'}}>19°</p>
+        <p style={{ color: "red" }}>{props.temp_max}°</p>
       </div>
-      <p style={{fontSize: '13px'}}>Wind 12km/h <strong>NE</strong></p>
+      <p style={{ fontSize: "12px" }}>Wind {props.wind}km/h</p>
     </div>
-  )
-}
+  );
+};
 
-export default TomorrowsCard
+export default TomorrowsCard;

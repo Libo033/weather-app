@@ -7,6 +7,15 @@ import PopularCities from "@/Components/PopularCities";
 import TomorrowsCard from "@/Components/TomorrowsCard";
 import { useEffect, useState } from "react";
 
+interface ITCardsData {
+  weather: { icon: string; description: string };
+  min_temp: number;
+  max_temp: number;
+  wind_spd: number;
+  wind_cdir_full: string;
+  valid_date: string;
+}
+
 export default function Home({ data }: any) {
   const [ciudadName, setCiudadName] = useState("");
 
@@ -44,54 +53,21 @@ export default function Home({ data }: any) {
           </h1>
           <h3 className={styles.nextDaysTitle}>Next days:</h3>
           <div className={styles.tomorrowCardsContainer}>
-            <TomorrowsCard
-              icon={""}
-              posibilidad_lluvia={""}
-              temp_min={""}
-              temp_max={""}
-              dia={""}
-              wind={""}
-            />
-            <TomorrowsCard
-              icon={""}
-              posibilidad_lluvia={""}
-              temp_min={""}
-              temp_max={""}
-              dia={""}
-              wind={""}
-            />
-            <TomorrowsCard
-              icon={""}
-              posibilidad_lluvia={""}
-              temp_min={""}
-              temp_max={""}
-              dia={""}
-              wind={""}
-            />
-            <TomorrowsCard
-              icon={""}
-              posibilidad_lluvia={""}
-              temp_min={""}
-              temp_max={""}
-              dia={""}
-              wind={""}
-            />
-            <TomorrowsCard
-              icon={""}
-              posibilidad_lluvia={""}
-              temp_min={""}
-              temp_max={""}
-              dia={""}
-              wind={""}
-            />
-            <TomorrowsCard
-              icon={""}
-              posibilidad_lluvia={""}
-              temp_min={""}
-              temp_max={""}
-              dia={""}
-              wind={""}
-            />
+            {data &&
+              data.data
+                .slice(1, 7)
+                .map((dia: ITCardsData) => (
+                  <TomorrowsCard 
+                    key={dia.valid_date}
+                    icon={dia.weather.icon}
+                    temp_min={Math.round(dia.min_temp)}
+                    temp_max={Math.round(dia.max_temp)}
+                    description={dia.weather.description}
+                    wind={Math.round(dia.wind_spd * 3.6)}
+                    windDir={dia.wind_cdir_full}
+                    dia={dia.valid_date}
+                  />
+                ))}
           </div>
           <PopularCities />
         </div>
