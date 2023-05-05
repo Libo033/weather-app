@@ -6,6 +6,7 @@ import BigCard from "@/Components/BigCard";
 import PopularCities from "@/Components/PopularCities";
 import TomorrowsCard from "@/Components/TomorrowsCard";
 import { useEffect, useState } from "react";
+import backImage from "@/Libs/backgroundImage";
 
 interface ITCardsData {
   weather: { icon: string; description: string };
@@ -17,7 +18,8 @@ interface ITCardsData {
 }
 
 export default function Home({ data }: any) {
-  const [ciudadName, setCiudadName] = useState("");
+  const [ciudadName, setCiudadName] = useState<string>("");
+  const [estiloFondo, setEstiloFondo] = useState<string | undefined>();
 
   const acomodarCiudad = (ciudad: "string") => {
     let ciudadFinal: string = ciudad.slice(
@@ -31,11 +33,14 @@ export default function Home({ data }: any) {
 
   useEffect(() => {
     setCiudadName(acomodarCiudad(data.timezone));
+    setEstiloFondo(backImage(data.data[0].weather.code))
   }, []);
+
+  console.log(estiloFondo);
 
   return (
     <Layout title="Home">
-      <div className={styles.lowclouds}>
+      <div className={estiloFondo}>
         <div className={styles.navigator}>
           <BigCard
             temperatura={data.data[0].temp}

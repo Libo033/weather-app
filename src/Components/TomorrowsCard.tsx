@@ -34,7 +34,7 @@ const TomorrowsCard: React.FC<ICardData> = (props) => {
         />
       </div>
       <div className={styles.minmax}>
-        <p style={{ color: "blue" }}>{props.temp_min}°</p>
+        <p style={{ color: "lightblue" }}>{props.temp_min}°</p>
         <p>&nbsp;/&nbsp;</p>
         <p style={{ color: "red" }}>{props.temp_max}°</p>
       </div>
