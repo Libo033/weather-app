@@ -73,6 +73,14 @@ const BigCard = () => {
           <p>16km</p>
         </div>
       </div>
+      <a
+        href="https://www.weatherbit.io"
+        rel="noopener noreferrer"
+        target="_blanck" 
+        style={{color: "white", marginBottom: '1rem'}}
+      >
+        WeatherBit API
+      </a>
     </div>
   );
 };
