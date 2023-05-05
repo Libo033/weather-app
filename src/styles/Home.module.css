@@ -137,6 +137,7 @@
 
 .popularTitle{
   font-weight: 100;
+  margin-top: 4.5rem;
 }
 
 .popularCities{
@@ -180,6 +181,41 @@
 .popularCityTitleLast{
   font-weight: 400;
   text-align: center;
+}
+
+.nextDaysTitle{
+  margin-top: 3.9rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.tomorrowCardsContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1.2rem;
+  padding-bottom: 0.9rem;
+  overflow-x: scroll;
+}
+
+.tomorrowCardsContainer::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.45);
+	border-radius: 10px;
+	background-color: #F5F5F500;
+}
+
+.tomorrowCardsContainer::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F500;
+  height: 12px;
+}
+
+.tomorrowCardsContainer::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.15);
+	background-color: #f3f3f3;
 }
 
 @media (max-width: 1100px) {

@@ -24,10 +24,12 @@ interface ILayoutProps {
 }
 
 const Layout: React.FC<ILayoutProps> = (props) => {
+  const titulo = `Libo Weather - ${props.title}`
+
   return (
     <div className={inter.className}>
       <Head>
-        <title>Libo Weather - {props.title}</title>
+        <title>{titulo}</title>
       </Head>
       {props.children}
     </div>
