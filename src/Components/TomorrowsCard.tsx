@@ -3,7 +3,6 @@ import React from 'react'
 import styles from '@/styles/Cards.module.css'
 import Image from 'next/image'
 
-/*
 interface ICardData {
   icon: string
   posibilidad_lluvia: string
@@ -12,9 +11,8 @@ interface ICardData {
   dia: string
   wind: string
 }
-*/
 
-const TomorrowsCard = () => {
+const TomorrowsCard: React.FC<ICardData> = ( props ) => {
   return (
     <div className={styles.tomorrowCard}>
       <p>Mañana</p>
