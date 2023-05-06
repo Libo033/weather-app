@@ -7,6 +7,8 @@ import PopularCities from "@/Components/PopularCities";
 import TomorrowsCard from "@/Components/TomorrowsCard";
 import { useEffect, useState } from "react";
 import backImage from "@/Libs/backgroundImage";
+import acomodarCiudad from "@/Libs/FormatoNombreCiudad";
+import { useRouter } from "next/router";
 
 interface ITCardsData {
   weather: { icon: string; description: string };
@@ -18,25 +20,21 @@ interface ITCardsData {
 }
 
 export default function Home({ data }: any) {
+  const router = useRouter();
   const [ciudadName, setCiudadName] = useState<string>("");
   const [estiloFondo, setEstiloFondo] = useState<string | undefined>();
 
-  const acomodarCiudad = (ciudad: "string") => {
-    let ciudadFinal: string = ciudad.slice(
-      ciudad.indexOf("/") + 1,
-      ciudad.length
-    );
-    ciudadFinal = ciudadFinal.replace("/", ", ").replace("_", " ");
-
-    return ciudadFinal;
-  };
+  const getPosition = ( ) => {
+    navigator.geolocation.getCurrentPosition((data) => {
+      router.push(`/?lat=${data.coords.latitude}&lon=${data.coords.longitude}`)
+    })
+  }
 
   useEffect(() => {
-    setCiudadName(acomodarCiudad(data.timezone));
-    setEstiloFondo(backImage(data.data[0].weather.code))
+    setCiudadName(acomodarCiudad(data.timezone || "2017-04-01"));
+    setEstiloFondo(backImage(data[0].weather.code || 200))
+    getPosition()
   }, []);
-
-  console.log(estiloFondo);
 
   return (
     <Layout title="Home">
@@ -81,7 +79,7 @@ export default function Home({ data }: any) {
   );
 }
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: any) {  
   const res = await fetch(
     `https://api.weatherbit.io/v2.0/forecast/daily?lat=-34.7984&lon=-58.45316614322921&key=911f70efe3c74664ac8a9262e1da2862`,
     { method: "GET" }
