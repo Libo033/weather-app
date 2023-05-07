@@ -32,7 +32,7 @@ export default function Home({ data }: any) {
 
   useEffect(() => {
     setCiudadName(acomodarCiudad(data.timezone || "2017-04-01"));
-    setEstiloFondo(backImage(data[0].weather.code || 200))
+    setEstiloFondo(backImage(data.data[0].weather.code || 200))
     getPosition()
   }, []);
 
@@ -79,12 +79,28 @@ export default function Home({ data }: any) {
   );
 }
 
-export async function getServerSideProps(context: any) {  
-  const res = await fetch(
-    `https://api.weatherbit.io/v2.0/forecast/daily?lat=-34.7984&lon=-58.45316614322921&key=911f70efe3c74664ac8a9262e1da2862`,
-    { method: "GET" }
-  );
-  const data = await res.json();
+export async function getServerSideProps(context: any) {
+  try {
+    const { lat, lon } = context.query || undefined
 
-  return { props: { data } };
+    if (lat !== undefined && lon !== undefined) {
+      const res = await fetch(
+        `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=911f70efe3c74664ac8a9262e1da2862`,
+        { method: "GET" }
+      );
+      const data = await res.json();
+    
+      return { props: { data } };
+    } else {
+      const res = await fetch( //51.5059, -0.1294
+        `https://api.weatherbit.io/v2.0/forecast/daily?lat=51.5059&lon=-0.1294&key=911f70efe3c74664ac8a9262e1da2862`,
+        { method: "GET" }
+      );
+      const data = await res.json();
+    
+      return { props: { data } };
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
