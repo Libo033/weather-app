@@ -34,7 +34,7 @@ export default function Home({ data }: any) {
     setCiudadName(acomodarCiudad(data.timezone || "2017-04-01"));
     setEstiloFondo(backImage(data.data[0].weather.code || 200))
     getPosition()
-  }, []);
+  }, [router.query]);
 
   return (
     <Layout title="Home">

@@ -11,7 +11,7 @@ interface ICardData {
   description: string;
   wind: number;
   windDir: string;
-  dia: string
+  dia: string;
 }
 
 const TomorrowsCard: React.FC<ICardData> = (props) => {
@@ -19,7 +19,7 @@ const TomorrowsCard: React.FC<ICardData> = (props) => {
 
   useEffect(() => {
     setDia(dia_semana(props.dia));
-  }, [])
+  }, []);
 
   return (
     <div className={styles.tomorrowCard}>
