@@ -208,58 +208,6 @@
   font-size: 3rem;
 }
 
-.popularContainer {
-  margin-top: 2.4rem;
-}
-
-.popularTitle {
-  font-weight: 100;
-  margin-top: 4.5rem;
-}
-
-.popularCities {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.popularCityCard {
-  margin-top: 0.9rem;
-  cursor: pointer;
-  max-width: fit-content;
-  min-width: 7.71rem;
-  border: 1px solid white;
-  border-radius: 6px;
-  padding: 0.6rem;
-  background-color: rgba(245, 245, 245, 0.36);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.popularCityCardLast {
-  margin-top: 0.9rem;
-  cursor: pointer;
-  max-width: fit-content;
-  min-width: 7.71rem;
-  border: 1px solid white;
-  border-radius: 6px;
-  padding: 0.6rem;
-  background-color: rgba(245, 245, 245, 0.36);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.popularCityTitle {
-  font-weight: 400;
-  text-align: center;
-}
-
-.popularCityTitleLast {
-  font-weight: 400;
-  text-align: center;
-}
-
 .nextDaysTitle {
   margin-top: 3.9rem;
   margin-bottom: 1.5rem;
@@ -290,16 +238,6 @@
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.15);
   background-color: #f3f3f3;
-}
-
-@media (max-width: 1100px) {
-  .popularCityCardLast {
-    display: none;
-  }
-
-  .popularCityTitleLast {
-    display: none;
-  }
 }
 
 @media (max-width: 600px) {
@@ -432,10 +370,6 @@
     font-weight: 300;
     margin-bottom: 1.8rem;
     text-align: center;
-  }
-  
-  .popularContainer {
-    display: none;
   }
   
   .nextDaysTitle {

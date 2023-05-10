@@ -3,7 +3,6 @@
 import styles from "@/styles/Home.module.css";
 import Layout from "@/Components/Layout";
 import BigCard from "@/Components/BigCard";
-import PopularCities from "@/Components/PopularCities";
 import TomorrowsCard from "@/Components/TomorrowsCard";
 import { useEffect, useState } from "react";
 import backImage from "@/Libs/backgroundImage";
@@ -72,7 +71,7 @@ export default function Home({ data }: any) {
                   />
                 ))}
           </div>
-          <PopularCities />
+          
         </div>
       </div>
     </Layout>
