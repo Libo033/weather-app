@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Cards.module.css";
 import Image from "next/image";
 
 interface IBigCardData {
@@ -43,13 +43,6 @@ const BigCard: React.FC<IBigCardData> = (props) => {
 
   return (
     <div className={styles.navContainer}>
-      <div className={styles.navInput}>
-        <input
-          className={styles.cityInput}
-          type="text"
-          placeholder="Your city..."
-        />
-      </div>
       <div className={styles.timeContainer}>
         <p>{fecha}</p>
         <p>{hora}</p>

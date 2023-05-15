@@ -16,3 +16,100 @@
   font-size: 18px;
 }
 /*#endregion*/
+
+/*#region BIGCARD-COMPONENT */
+.navContainer {
+  width: 90%;
+  height: 95%;
+  border-radius: 27px;
+  border-width: 1.8px;
+  border-style: solid;
+  background-color: rgba(245, 245, 245, 0.24);
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 1px 2px 21px rgba(245, 245, 245, 0.6);
+}
+
+.cityInput::placeholder {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.tempContainer {
+  width: 100%;
+  height: 20.1%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 39%;
+}
+
+.temph2 {
+  font-size: 66px;
+  font-weight: 100;
+}
+
+.timeContainer {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.dataContainer {
+  width: 100%;
+  height: 18%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.miniContainer {
+  text-align: center;
+}
+
+.miniTitle {
+  font-size: 18px;
+  margin-bottom: 0.45rem;
+}
+/*#endregion*/
+
+@media (max-width: 600px) {
+  /*#region BIGCARD-COMPONENT */
+  .navContainer {
+    width: 90%;
+    height: 90%;
+    background-color: rgba(0, 0, 0, 0.21);
+  }
+
+  .tempContainer {
+    height: 27vh;
+    display: grid;
+    place-content: center;
+    margin-bottom: 1%;
+  }
+
+  .temph2 {
+    font-weight: 400;
+  }
+
+  .timeContainer {
+    margin-top: 6%;
+    font-size: 21.3px;
+  }
+
+  .dataContainer {
+    height: 15vh;
+  }
+
+  .miniTitle {
+    font-size: 19.2px;
+    font-weight: 500;
+  }
+  /*#endregion */
+}

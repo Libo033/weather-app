@@ -1,5 +1,4 @@
-// https://dribbble.com/shots/20288381-Weather-Forecasting-Web-App-UI
-// https://api.weatherbit.io/v2.0/current?lat=-34.7984&lon=-58.45316614322921&key=911f70efe3c74664ac8a9262e1da2862&include=minutely
+// https://api.weatherbit.io/v2.0/forecast/daily?city=Raleigh,NC&key=417411fa0a1c44649562ddd5661239e1
 import styles from "@/styles/Home.module.css";
 import Layout from "@/Components/Layout";
 import BigCard from "@/Components/BigCard";
@@ -23,21 +22,14 @@ export default function Home({ data }: any) {
   const [ciudadName, setCiudadName] = useState<string>("");
   const [estiloFondo, setEstiloFondo] = useState<string | undefined>();
 
-  const getPosition = ( ) => {
-    navigator.geolocation.getCurrentPosition((data) => {
-      router.push(`/?lat=${data.coords.latitude}&lon=${data.coords.longitude}`)
-    })
-  }
-
   useEffect(() => {
     setCiudadName(acomodarCiudad(data.timezone || "2017-04-01"));
-    setEstiloFondo(backImage(data.data[0].weather.code || 200))
-    getPosition()
+    setEstiloFondo(backImage(data.data[0].weather.code || 200));
   }, [router.query]);
 
   return (
     <Layout title="Home">
-      <div className={estiloFondo}>
+      <div className={styles.bg_default + " " + estiloFondo}>
         <div className={styles.navigator}>
           <BigCard
             temperatura={data.data[0].temp}
@@ -53,53 +45,38 @@ export default function Home({ data }: any) {
           <h1 className={styles.titleTemp}>
             {data.data[0].weather.description}
           </h1>
-          <h3 className={styles.nextDaysTitle}>Next days:</h3>
-          <div className={styles.tomorrowCardsContainer}>
-            {data &&
-              data.data
-                .slice(1, 7)
-                .map((dia: ITCardsData) => (
-                  <TomorrowsCard 
-                    key={dia.valid_date}
-                    icon={dia.weather.icon}
-                    temp_min={Math.round(dia.min_temp)}
-                    temp_max={Math.round(dia.max_temp)}
-                    description={dia.weather.description}
-                    wind={Math.round(dia.wind_spd * 3.6)}
-                    windDir={dia.wind_cdir_full}
-                    dia={dia.valid_date}
-                  />
-                ))}
+          <div className={styles.nextDays}>
+            <h3 className={styles.nextDaysTitle}>Next days:</h3>
+            <div className={styles.tomorrowCardsContainer}>
+              {data &&
+                data.data
+                  .slice(1, 7)
+                  .map((dia: ITCardsData) => (
+                    <TomorrowsCard
+                      key={dia.valid_date}
+                      icon={dia.weather.icon}
+                      temp_min={Math.round(dia.min_temp)}
+                      temp_max={Math.round(dia.max_temp)}
+                      description={dia.weather.description}
+                      wind={Math.round(dia.wind_spd * 3.6)}
+                      windDir={dia.wind_cdir_full}
+                      dia={dia.valid_date}
+                    />
+                  ))}
+            </div>
           </div>
-          
         </div>
       </div>
     </Layout>
   );
 }
 
-export async function getServerSideProps(context: any) {
-  try {
-    const { lat, lon } = context.query || undefined
+export async function getServerSideProps() {
+  const res = await fetch(
+    `https://api.weatherbit.io/v2.0/forecast/daily?lat=-34.6052&lon=-58.4334&key=${process.env.API_KEY}`,
+    { method: "GET" }
+  );
+  const data = await res.json();
 
-    if (lat !== undefined && lon !== undefined) {
-      const res = await fetch(
-        `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=911f70efe3c74664ac8a9262e1da2862`,
-        { method: "GET" }
-      );
-      const data = await res.json();
-    
-      return { props: { data } };
-    } else {
-      const res = await fetch( //51.5059, -0.1294
-        `https://api.weatherbit.io/v2.0/forecast/daily?lat=51.5059&lon=-0.1294&key=911f70efe3c74664ac8a9262e1da2862`,
-        { method: "GET" }
-      );
-      const data = await res.json();
-    
-      return { props: { data } };
-    }
-  } catch (error) {
-    console.log(error);
-  }
+  return { props: { data } };
 }

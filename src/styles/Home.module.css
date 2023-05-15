@@ -1,202 +1,91 @@
-/* https://media.istockphoto.com/id/106529026/photo/threatening-dark-clouds-covering-the-sky.jpg?s=612x612&w=0&k=20&c=XOSnMeZbKOW541FgTISJkDVvFK_bVHyTvusmAk9jjAs=*/
-.clear_sky {
+/*#region BACKGROUNDS */
+.bg_default {
   width: 100%;
   height: 100vh;
   display: flex;
+  color: white;
+}
+
+.clear_sky {
   background: url("/img/clearsky.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
 }
 
 .lowclouds {
-  width: 100%;
-  height: 100vh;
-  display: flex;
   background: url("/img/lowclouds.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
 }
 
 .cloudy {
-  width: 100%;
-  height: 100vh;
-  display: flex;
   background: url("/img/cloudy.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
 }
 
 .fog {
-  width: 100%;
-  height: 100vh;
-  display: flex;
   background: url("/img/fog.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
 }
 
 .snow {
-  width: 100%;
-  height: 100vh;
-  display: flex;
   background: url("/img/snow.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
 }
 
 .ligthrain {
-  width: 100%;
-  height: 100vh;
-  display: flex;
   background: url("/img/ligthrain.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
 }
 
 .heavyrain {
-  width: 100%;
-  height: 100vh;
-  display: flex;
   background: url("/img/heavyrain.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
 }
 
 .drizzle {
-  width: 100%;
-  height: 100vh;
-  display: flex;
   background: url("/img/drizzle.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
 }
 
 .thunderstorm {
-  width: 100%;
-  height: 100vh;
-  display: flex;
   background: url("/img/thunderstorm.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
 }
+/*#endregion */
 
-/*#region LEFTCOMPONENT*/
 .navigator {
   width: 27%;
   height: 100%;
 }
 
-.navContainer {
-  width: 90%;
-  height: 95%;
-  border-radius: 27px;
-  border-width: 1.8px;
-  border-style: solid;
-  background-color: rgba(245, 245, 245, 0.24);
-  margin: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  box-shadow: 1px 2px 21px rgba(245, 245, 245, 0.6);
-}
-
-.navInput {
-  width: 80%;
-  border: 0px;
-  padding-top: 2.4rem;
-  border-bottom: 2.7px;
-  border-style: solid;
-  display: flex;
-  justify-content: center;
-}
-
-.cityInput {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0);
-  outline: none;
-  border: 0px solid white;
-  padding-top: 0.45rem;
-  margin-bottom: 0.3rem;
-  font-size: 18px;
-  background: url("/img/termometro.png") no-repeat left center;
-  color: white;
-  padding-inline: 2.4rem;
-  display: flex;
-}
-
-.cityInput::placeholder {
-  color: rgba(255, 255, 255, 0.66);
-}
-
-.tempContainer {
-  width: 100%;
-  height: 20.1%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-bottom: 39%;
-}
-
-.temph2 {
-  font-size: 66px;
-  font-weight: 100;
-}
-
-.timeContainer {
-  width: 100%;
-  height: 12%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  font-weight: 500;
-  font-size: 18px;
-}
-
-.dataContainer {
-  width: 100%;
-  height: 18%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.miniContainer {
-  text-align: center;
-}
-
-.miniTitle {
-  font-size: 18px;
-  margin-bottom: 0.45rem;
-}
-/*#endregion */
-
 .info {
   width: 73%;
   padding: 1.5%;
+  display: flex;
+  flex-direction: column;
 }
 
 .liboWeather {
   font-weight: 100;
-  margin-bottom: 3rem;
+  margin-bottom: 7.2%;
+  align-self: flex-start;
 }
 
 .cityTxt {
@@ -208,9 +97,13 @@
   font-size: 3rem;
 }
 
+.nextDays{
+  margin-top: auto;
+  margin-bottom: 2.1rem;
+}
+
 .nextDaysTitle {
-  margin-top: 3.9rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3%;
   font-weight: 500;
 }
 
@@ -242,18 +135,19 @@
 
 @media (max-width: 600px) {
   /*#region BACKGROUNDS */
-  .clear_sky {
-    background: url("/img/r_clearsky.jpg");
+  .bg_default {
     height: fit-content;
     flex-direction: column;
+  }
+
+  .clear_sky {
+    background: url("/img/r_clearsky.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
 
   .lowclouds {
-    height: fit-content;
-    flex-direction: column;
     background: url("/img/lowclouds.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -261,8 +155,6 @@
   }
 
   .cloudy {
-    height: fit-content;
-    flex-direction: column;
     background: url("/img/r_cloudy.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -270,8 +162,6 @@
   }
 
   .fog {
-    height: fit-content;
-    flex-direction: column;
     background: url("/img/r_fog.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -279,8 +169,6 @@
   }
 
   .snow {
-    height: fit-content;
-    flex-direction: column;
     background: url("/img/r_snow.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -289,16 +177,12 @@
 
   .ligthrain {
     background: url("/img/r_ligthrain.jpg");
-    height: fit-content;
-    flex-direction: column;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
 
   .heavyrain {
-    height: fit-content;
-    flex-direction: column;
     background: url("/img/r_heavyrain.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -306,70 +190,31 @@
   }
 
   .drizzle {
-    height: fit-content;
-    flex-direction: column;
     background: url("/img/r_drizzle.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
-
-  .thunderstorm {
-    height: fit-content;
-    flex-direction: column;
-  }
   /*#endregion */
 
-  /*#region LEFTCOMPONENT*/
   .navigator {
     width: 100%;
     height: 100%;
   }
 
-  .navContainer {
-    width: 90%;
-    height: 90%;
-    background-color: rgba(0, 0, 0, 0.21);
-  }
-
-  .navInput {
-    padding-top: 1.8rem;
-  }
-
-  .tempContainer {
-    height: 27vh;
-    display: grid;
-    place-content: center;
-    margin-bottom: 1%;
-  }
-
-  .temph2 {
-    font-weight: 400;
-  }
-
-  .timeContainer {
-    margin-top: 6%;
-    font-size: 21.3px;
-  }
-
-  .dataContainer {
-    height: 15vh;
-  }
-
-  .miniTitle {
-    font-size: 19.2px;
-    font-weight: 500;
-  }
-  /*#endregion */
-
   .info {
     width: 100%;
+    padding: 3%;
   }
   
   .liboWeather {
     font-weight: 300;
     margin-bottom: 1.8rem;
     text-align: center;
+  }
+
+  .nextDays{
+    margin-bottom: 0rem;
   }
   
   .nextDaysTitle {
