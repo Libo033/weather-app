@@ -1,19 +1,15 @@
 import Head from "next/head";
 import React from "react";
-import { Roboto_Flex } from "next/font/google";
+import { Roboto } from "next/font/google";
 
-const inter = Roboto_Flex({
+const inter = Roboto({
   weight: [
     "100",
-    "200",
     "300",
     "400",
     "500",
-    "600",
     "700",
-    "800",
-    "900",
-    "1000",
+    "900"
   ],
   subsets: ["latin"],
 });
