@@ -1,4 +1,3 @@
-// https://api.weatherbit.io/v2.0/forecast/daily?city=Raleigh,NC&key=417411fa0a1c44649562ddd5661239e1
 import styles from "@/styles/Home.module.css";
 import Layout from "@/Components/Layout";
 import BigCard from "@/Components/BigCard";
