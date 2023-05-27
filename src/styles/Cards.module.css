@@ -92,11 +92,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin-bottom: 1%;
   }
 
   .temph2 {
-    font-weight: 400;
+    font-weight: 600;
   }
 
   .timeContainer {
