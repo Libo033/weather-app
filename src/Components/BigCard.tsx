@@ -51,7 +51,7 @@ const BigCard: React.FC<IBigCardData> = (props) => {
       </div>
       <div className={styles.tempContainer}>
         <h2 className={styles.temph2}>{props.temperatura}°</h2>
-        <h3>° / °</h3>
+        <h3>{props.min}° / {props.max}°</h3>
       </div>
       <div className={styles.dataContainer}>
         <div className={styles.miniContainer}>
