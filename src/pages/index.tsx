@@ -36,6 +36,8 @@ export default function Home({ data }: any) {
             humedad={data.data[0].rh}
             nubes={data.data[0].clouds}
             vis={Math.round(data.data[0].vis)}
+            min={data.data[0].low_temp}
+            max={data.data[0].high_temp}
           />
         </div>
         <div className={styles.info}>

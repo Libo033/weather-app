@@ -8,6 +8,8 @@ interface IBigCardData {
   humedad: number;
   nubes: number;
   vis: number;
+  min: number;
+  max: number;
 }
 
 const BigCard: React.FC<IBigCardData> = (props) => {
@@ -49,6 +51,7 @@ const BigCard: React.FC<IBigCardData> = (props) => {
       </div>
       <div className={styles.tempContainer}>
         <h2 className={styles.temph2}>{props.temperatura}°</h2>
+        <h3>° / °</h3>
       </div>
       <div className={styles.dataContainer}>
         <div className={styles.miniContainer}>
