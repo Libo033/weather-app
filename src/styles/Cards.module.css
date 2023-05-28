@@ -42,13 +42,14 @@
   height: 20.1%;
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 39%;
+  margin-bottom: 33%;
 }
 
 .temph2 {
   font-size: 66px;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .timeContainer {
@@ -98,6 +99,7 @@
 
   .temph2 {
     font-weight: 600;
+    margin-bottom: 6%;
   }
 
   .timeContainer {
