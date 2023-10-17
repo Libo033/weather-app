@@ -31,7 +31,7 @@ const BigCard: React.FC<IBigCardData> = (props) => {
         ? "0" + today.getDay().toString()
         : today.getDay().toString()) +
         "/" +
-        ((today.getMonth() + 1).toString().length
+        ((today.getMonth() + 1).toString().length === 1
           ? "0" + (today.getMonth() + 1).toString()
           : (today.getMonth() + 1).toString()) +
         "/" +
